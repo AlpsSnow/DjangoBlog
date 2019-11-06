@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+
+    {% block meta %}
+        <meta name="keywords" content="python,Django,blog,Web,阿尔卑斯的雪">
+        <meta name="description" content="阿尔卑斯的雪的博客,提供技术分享的个人博客网站"/>
+    {% endblock %}  
+
+    <meta name="author" content="AlpsSnow"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Favicons -->
+    <link href="https://static.djangoproject.com/img/favicon.6dbf28c0650e.ico" rel="shortcut icon">
+    
+    {% block title %}
+        <title>阿尔卑斯的雪 -Django开发的博客</title>
+    {% endblock %}
+</head>
+<body>
+    <!--导航-->
+    {% include "blog/header.html" %}
+
+    <!--主体-->
+    <div class="container">
+        <!--左侧-->
+        {% block content %}
+        {% endblock %}
+
+        <!--右侧-->
+        {% include "blog/right.html" %}
+    </div>
+
+    <!---底部-->
+    {% include "blog/footer.html" %}
+
+</body>
+</html>

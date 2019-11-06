@@ -12,7 +12,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    date_hierarchy = 'created_time'         #后台管理表单Article可以按照创建时间分组展示
-    list_display = ('title', 'category', 'author', 'created_time', 'view')  #设置后台管理表单Article的字段
+    date_hierarchy = 'created_date'         #后台管理表单Article可以按照创建时间分组展示
+    list_display = ('title', 'category', 'author', 'created_date', 'view')  #设置后台管理表单Article的字段
     list_filter = ('category', 'author')    #设置台管理表单Article过滤器
     filter_horizontal = ('tag',)            #创建文章的时候，tag以水平迁移框的形式表现

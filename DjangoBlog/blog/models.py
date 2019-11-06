@@ -28,20 +28,20 @@ class Category(models.Model):
         return self.name
 
 class Article(models.Model):
-    title = models.CharField(max_length=200)    #文章标题
+    title = models.CharField(verbose_name=u'标题',max_length=200)    #文章标题
     digest = models.TextField(blank=True, null=True)  # 文章摘要
     picture = models.CharField(max_length=200)  # 文章标题的配图地址
     content = models.TextField(blank=True, null=True)  # 正文
-    created_time = models.DateField(auto_now_add=True)  # 博客创建日期
-    last_mod_time = models.DateTimeField(auto_now=True) # 博客修改日期
+    created_date = models.DateField(verbose_name=u'创建日期',auto_now_add=True)  # 博客创建日期
+    last_mod_date = models.DateTimeField(auto_now=True) # 博客修改日期
     author = models.ForeignKey(User, verbose_name=u'作者', on_delete=models.CASCADE)
     category = models.ForeignKey(Category, verbose_name=u'文章类型', on_delete=models.CASCADE)    
     tag = models.ManyToManyField(Tag,verbose_name=u'文章标签')  # 标签 
-    view = models.BigIntegerField(default=0)  # 阅读数
-    comment = models.BigIntegerField(default=0)  # 评论数
+    view = models.BigIntegerField(verbose_name=u'阅读量',default=0)  # 阅读数
+    comment = models.BigIntegerField(verbose_name=u'评论数',default=0)  # 评论数
 
     class Meta:  # 按时间降序
-        ordering = ['-created_time']
+        ordering = ['-created_date']
         verbose_name = u"文章"   #模型类的可读名称
         verbose_name_plural = verbose_name  #模型类的可读名称的复数形式 eg. xxx+s
 
