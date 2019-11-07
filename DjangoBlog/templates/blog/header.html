@@ -1,3 +1,47 @@
-<div>
-    <h2>header部</h2>
+{% load static %}
+<div container >
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="row">
+            <div class="hidden-xs col-sm-2 col-md-2 col-lg-2" style="padding: 15px;">
+                <img src="{% static 'blog/image/AlpsSnow.logo.png' %}" alt="logo">
+            </div>
+            <div class="hidden-xs hidden-sm col-md-2 col-lg-2 text-primary" style="padding: 15px;">
+                通知：今天特别放假一天
+            </div>
+            <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8 container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse">
+                        <span class="sr-only">切换导航</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#" style="color:#ff6700">阿尔卑斯的雪</a>
+                </div>
+                <div class="collapse navbar-collapse" id="example-navbar-collapse" >
+                    <ul class="nav navbar-nav" >
+                        <li class="active"><a href="#" style="color:#ff6700">首页</a></li>
+                        <li><a href="#" style="color:#ff6700">存档</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#ff6700">
+                                分类 <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" style="color:#ff6700">编程</a></li>
+                                <li><a href="#" style="color:#ff6700">投资</a></li>
+                                <li><a href="#" style="color:#ff6700">文学</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" style="color:#ff6700">关于</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" style="color:#ff6700"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+                        <li><a href="#" style="color:#ff6700"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
 </div>
