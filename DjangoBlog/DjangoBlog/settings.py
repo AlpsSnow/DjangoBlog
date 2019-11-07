@@ -118,3 +118,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#STATICFILES_DIRS告诉django,首先到STATICFILES_DIRS里面寻找静态文件,其次再到各个app的static文件夹里面找
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"), # BASE_DIR指project的路径，即DjangoBlog目录的路径
+)
+
+#部署的时候才发挥作用,通过manage.py collectstatic可以把所有static文件统一收集到collected_static下
+STATIC_ROOT = os.path.join(BASE_DIR, "collected_static")  

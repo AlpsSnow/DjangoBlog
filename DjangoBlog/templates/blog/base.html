@@ -1,39 +1,56 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="zh">
 <head>
+    <title>
+        {% block title %}
+        阿尔卑斯的雪
+        {% endblock %}
+    </title>
+
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     {% block meta %}
-        <meta name="keywords" content="python,Django,blog,Web,阿尔卑斯的雪">
-        <meta name="description" content="阿尔卑斯的雪的博客,提供技术分享的个人博客网站"/>
-    {% endblock %}  
-
-    <meta name="author" content="AlpsSnow"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <!-- Favicons -->
-    <link href="https://static.djangoproject.com/img/favicon.6dbf28c0650e.ico" rel="shortcut icon">
-    
-    {% block title %}
-        <title>阿尔卑斯的雪 -Django开发的博客</title>
+    <meta name="keywords" content="python,Django,blog,Web,阿尔卑斯的雪">
+    <meta name="description" content="阿尔卑斯的雪的博客,提供技术分享的个人博客网站" />
     {% endblock %}
+
+    <meta name="author" content="AlpsSnow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{% static 'blog/image/icon/favicon.dj.ico' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/3.3.7/css/bootstrap.min.css' %}">
+    <script src="{% static 'bootstrap/3.3.7/js/bootstrap.min.js' %}"></script>
+
 </head>
+
 <body>
-    <!--导航-->
-    {% include "blog/header.html" %}
+    <!--header部-->
+    <header>
+        {% include "blog/header.html" %}
+    </header>
 
     <!--主体-->
-    <div class="container">
+    <main>
         <!--左侧-->
-        {% block content %}
-        {% endblock %}
+        <section>
+            {% block content %}
+            {% endblock %}
+        </section>
 
         <!--右侧-->
-        {% include "blog/right.html" %}
-    </div>
+        <aside>
+            {% include "blog/right.html" %}
+        </aside>
+    </main>
 
     <!---底部-->
-    {% include "blog/footer.html" %}
-
+    <footer>
+        {% include "blog/footer.html" %}
+    </footer>
 </body>
+
 </html>

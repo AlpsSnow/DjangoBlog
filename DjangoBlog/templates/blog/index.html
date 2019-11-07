@@ -1,49 +1,60 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
+<div class="swiper-container">    
+    <div class="swiper-button-next">向左箭头</div>
+    <div>轮播图 轮播图 轮播图 轮播图 轮播图</div>
+    <div class="swiper-button-prev">向右箭头</div>
+</div>
 
-<section class="mysection">
-    <div class="swiper-container">
-        <div>轮播图</div>
-        <!-- Add Arrows -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
-
-
-    <div class="arclist">
-        <h4 class="index-title homeh4"><a href=""><i class="el-certificate"></i>最新文章
-            <small>New Article</small>
-        </a></h4>
-        <!--列表开始-->
-        <ul>
-            {% for article in article_list %}
-            <li id="New">
-                <div class="arcimg">
-                    <img src="{{ article.picture }}" alt="{{ article.title }}" title="{{ article.title }}"/>
-                </div>
-                <div class="arc-right">
-                    <h4 class="blue-text"><a href="{% url "blog:detail" article_id=article.id %}" title="{{ article.title }}">{{ article.title }}</a></h4>
-                    <p>{{ article.digest }}</p>
-                    <ul>
-                        <li><a title="{{ article.author }}{{ article.date_time }} 发表 "><i
-                                class="el-time"></i> {{ article.date_time }}</a></li>
-                        <li><a href="#" title="作者： {{ article.author }}"><i
-                                class="el-user"></i>{{ article.author }}</a></li>
-                        <li><a href="#" title="已有 {{ article.comment }} 条评论"><i
-                                class="el-comment"> {{ article.comment }}</i></a>
-                        </li>
-                        <li><a title="已有 {{ article.view }} 次浏览"><i class="el-eye-open"></i>{{ article.view }}
-                        </a></li>
-                        <li><a href="#" title="查看分类"><i class="el-th-list"></i>{{ article.category }}</a></li>
-                    </ul>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
-        <!--列表结束-->
-    </div>
-
-</section>
-
+<!--博文列表-->
+<div class="arclist">
+    <h4 class="index-title homeh4">
+        <a href="#"><i class="el-certificate"></i>最新文章</a>
+    </h4>
+    <!--列表开始-->
+    <ul>
+        {% for article in article_list %}
+        <li id="New">
+            <div class="arcimg">
+                <img src="{{ article.picture }}" alt="{{ article.title }}" title="{{ article.title }}" />
+            </div>
+            <div class="arc-right">
+                <h4 class="blue-text">
+                    <a href="{% url "blog:detail" article_id=article.id %}"
+                        title="{{ article.title }}">{{ article.title }}</a>
+                </h4>
+                <p>{{ article.digest }}</p>
+                <ul>
+                    <li>
+                        <a title="{{ article.author }} {{ article.created_date }} 发表 ">
+                            <i class="el-time"></i> {{ article.created_date }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="作者： {{ article.author }}">
+                            <i class="el-user"></i>{{ article.author }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="已有 {{ article.comment }} 条评论">
+                            <i class="el-comment"> {{ article.comment }}</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a title="已有 {{ article.view }} 次浏览">
+                            <i class="el-eye-open"></i>{{ article.view }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="查看分类">
+                            <i class="el-th-list"></i>{{ article.category }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}
