@@ -28,9 +28,13 @@
                                 分类 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#" style="color:#ff6700">编程</a></li>
-                                <li><a href="#" style="color:#ff6700">投资</a></li>
-                                <li><a href="#" style="color:#ff6700">文学</a></li>
+                                {% for category in category_list %}
+                                    <li>
+                                        <a href="#" style="color:#ff6700" ">
+                                            <span>{{ category.name }}</span>
+                                        </a>
+                                    </li>
+                                {% endfor %}
                             </ul>
                         </li>
                         <li><a href="#" style="color:#ff6700">关于</a></li>
