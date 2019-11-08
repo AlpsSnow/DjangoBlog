@@ -35,12 +35,20 @@
 <!--文章排行-->
 
 <!--标签-->
-<div class="panel panel-default">
+<div class="panel panel-default tags">
     <div class="panel-heading">
         <h3 class="panel-title">云标签</h3>
     </div>
-    <div class="panel-body">
-        panel 类容
+    <div class="panel-body" id="tags-panel-body">
+        <ul>
+            {% for tag in tag_list %}
+            <li>
+                <a href="#" title="标签：{{ tag.name }} ">
+                    <span class="label tags_labe">{{ tag.name }}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
 </div>
 
@@ -53,3 +61,24 @@
         panel 类容
     </div>
 </div>
+
+<script type="text/javascript">
+    var tagslabes = document.getElementsByClassName('tags_labe');
+    var labesclass = new Array()
+    labesclass[0] = "label-default"
+    labesclass[1] = "label-primary"
+    labesclass[2] = "label-success"
+    labesclass[3] = "label-info"
+    labesclass[4] = "label-warning"
+    labesclass[5] = "label-danger"
+    var n = 0;
+
+    for (let i = 0; i < tagslabes.length; i++) {
+        if (n === 6) {
+            n = 0;
+        }
+        tagslabes[i].classList.add(labesclass[n]);
+        n++;        
+    }
+
+</script>

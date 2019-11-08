@@ -1,3 +1,10 @@
+.blog_header{
+    top: 0px; 
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+}
+
 .arclist li{
     list-style:none;
 }
@@ -22,4 +29,11 @@
 
 #tianqi{
     height: 30px;
+}
+
+.tags ul li{
+    list-style:none;
+    padding: 0 5px;  
+    float: left;
+    margin: 0 2px;
 }
