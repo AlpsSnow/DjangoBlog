@@ -1,0 +1,17 @@
+.arclist li {
+    list-style:none;
+}
+
+.article-footer ul{
+    list-style:none;
+    padding:15px;
+}
+.article-footer ul li{
+    float: left;
+    padding: 0 5px;
+    color: #888;
+}
+
+.article-footer ul li:last-child{
+    float: right;
+}
