@@ -1,4 +1,4 @@
-.arclist li {
+.arclist li{
     list-style:none;
 }
 
@@ -14,4 +14,12 @@
 
 .article-footer ul li:last-child{
     float: right;
+}
+
+.news li{
+    list-style:none;
+}
+
+#tianqi{
+    height: 30px;
 }
