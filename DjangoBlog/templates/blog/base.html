@@ -3,16 +3,17 @@
 <html lang="zh">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>
         {% block title %}
         阿尔卑斯的雪
         {% endblock %}
     </title>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     {% block meta %}
+    <!--SEO-->
     <meta name="keywords" content="python,Django,blog,Web,阿尔卑斯的雪">
     <meta name="description" content="阿尔卑斯的雪的博客,提供技术分享的个人博客网站" />
     {% endblock %}
@@ -37,7 +38,7 @@
 
 <body>
     <!--header部-->
-    <header class="blog_header">
+    <header class="blog-header">
         {% include "blog/header.html" %}
     </header>
 

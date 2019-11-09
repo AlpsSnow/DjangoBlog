@@ -1,8 +1,12 @@
-.blog_header{
+.blog-header{
     top: 0px; 
     width: 100%;
     position: fixed;
     z-index: 1;
+}
+
+.blog-header li:hover{
+    background-color: #e7e7e7;
 }
 
 .arclist li{
