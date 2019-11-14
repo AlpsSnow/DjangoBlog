@@ -10,7 +10,9 @@ def index(request):
     @param request
     @return 'blog/index.html'
     """    
-    article_list = Article.objects.all().order_by('-created_date')[0:5]
+    article_list = Article.objects.all().order_by('-created_date')[0:5]    
+    for article in article_list:
+        article.picture = 'blog/image/article_picture/{}'.format(article.picture)     
     return render(request, 'blog/index.html', {"article_list": article_list})
 
 def detail(request,id):
@@ -18,9 +20,11 @@ def detail(request,id):
     blog的detail页
     @param request
     @return 'blog/detail.html'
-    """
-    output = '这是blog的详细页面，第 %s 篇博文' % id
-    return HttpResponse(output)
+    """    
+    article = Article.objects.get(id = id)
+    # 阅读量+1    
+    article.viewed()
+    return render(request, 'blog/detail.html', {"article": article})
 
 def about(request):
     """

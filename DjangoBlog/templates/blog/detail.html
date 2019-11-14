@@ -1,0 +1,22 @@
+<!--博文详细画面-->
+{% extends "blog/base.html" %}
+{% block content %}
+{% load static %}
+<div class="swiper-container">
+    <!--轮播图-->
+    <a href="#" title="我用Django开发了一个个人博客!">
+        <img class="img-responsive" src="{% static 'blog/image/django.jpg' %}" alt="django">
+    </a>
+</div>
+<!--博文详细-->
+<div class="article">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">面板标题</h3>
+        </div>
+        <div class="panel-body">
+            <p>{{ article.content | safe}}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
