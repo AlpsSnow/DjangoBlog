@@ -1,4 +1,5 @@
 <!--关注我-->
+{% load static %}
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">关注我</h3>
@@ -43,7 +44,7 @@
         <ul>
             {% for tag in tag_list %}
             <li>
-                <a href="#" title="标签：{{ tag.name }} ">
+                <a href="{% url 'blog:tag' tag_name=tag.name %}" title="标签：{{ tag.name }} ">
                     <span class="label tags_labe">{{ tag.name }}</span>
                 </a>
             </li>

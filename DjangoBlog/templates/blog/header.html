@@ -22,7 +22,7 @@
                 <div class="collapse navbar-collapse" id="example-navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li ><a href="{% url 'blog:index' %}" style="color: #5bc0de;">首页</a></li>
-                        <li><a href="#" style="color: #5bc0de;">存档</a></li>
+                        <li><a href="{% url 'blog:archive'%}" style="color: #5bc0de;">存档</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #5bc0de;">
                                 分类 <b class="caret"></b>
@@ -30,14 +30,14 @@
                             <ul class="dropdown-menu">
                                 {% for category in category_list %}
                                     <li>
-                                        <a href="#" style="color: #5bc0de;">
+                                        <a href="{% url 'blog:category' category_id=category.id %}" style="color: #5bc0de;">
                                             <span>{{ category.name }}</span>
                                         </a>
                                     </li>
                                 {% endfor %}
                             </ul>
                         </li>
-                        <li><a href="#" style="color: #5bc0de;">关于</a></li>
+                        <li><a href="{% url 'blog:about'%}" style="color: #5bc0de;">关于</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#" style="color: #5bc0de;"><span class="glyphicon glyphicon-user"></span> 注册</a></li>

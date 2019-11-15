@@ -35,8 +35,8 @@ class Article(models.Model):
     created_date = models.DateField(verbose_name=u'创建日期',auto_now_add=True)  # 博客创建日期
     last_mod_date = models.DateTimeField(auto_now=True) # 博客修改日期
     author = models.ForeignKey(User, verbose_name=u'作者', on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, verbose_name=u'文章类型', on_delete=models.CASCADE)    
-    tag = models.ManyToManyField(Tag,verbose_name=u'文章标签')  # 标签 
+    category = models.ForeignKey(Category, verbose_name=u'文章类型', on_delete=models.CASCADE)  #分类，一对一
+    tag = models.ManyToManyField(Tag,verbose_name=u'文章标签')  # 标签，多对多
     view = models.BigIntegerField(verbose_name=u'阅读量',default=0)  # 阅读数
     comment = models.BigIntegerField(verbose_name=u'评论数',default=0)  # 评论数
 
