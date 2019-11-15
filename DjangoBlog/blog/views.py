@@ -37,6 +37,8 @@ def category(request,category_id):
     @return 'blog/articles.html'
     """ 
     article_list = Article.objects.filter(category_id=category_id)
+    for article in article_list:
+        article.picture = 'blog/image/article_picture/{}'.format(article.picture)     
     return render(request, 'blog/articles.html', {"article_list": article_list})
 
 def tag(request,tag_name):
@@ -46,6 +48,8 @@ def tag(request,tag_name):
     @return 'blog/articles.html'
     """ 
     article_list = Article.objects.filter(tag__name = tag_name) #__:表示查询tag字段的name中是否包含了tag_name的字符串
+    for article in article_list:
+        article.picture = 'blog/image/article_picture/{}'.format(article.picture)     
     return render(request, 'blog/articles.html', {"article_list": article_list})
 
 def about(request):
