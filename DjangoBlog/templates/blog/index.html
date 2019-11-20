@@ -41,27 +41,27 @@
                         <ul>
                             <li>
                                 <a title="{{ article.author }} {{ article.created_date }} 发表 ">
-                                    <i class="el-time"></i> {{ article.created_date }}
+                                    <i class="el-time"></i> 发表日期：{{ article.created_date }}
                                 </a>
                             </li>
                             <li>
                                 <a href="#" title="作者： {{ article.author }}">
-                                    <i class="el-user"></i>{{ article.author }}
+                                    <i class="el-user"></i>作者：{{ article.author }}
                                 </a>
                             </li>
                             <li>
                                 <a href="#" title="已有 {{ article.comment }} 条评论">
-                                    <i class="el-comment"> {{ article.comment }}</i>
+                                    <i class="el-comment"> 评论：{{ article.comment }}</i>
                                 </a>
                             </li>
                             <li>
                                 <a title="已有 {{ article.view }} 次浏览">
-                                    <i class="el-eye-open"></i>{{ article.view }}
+                                    <i class="el-eye-open"></i>阅读：{{ article.view }}
                                 </a>
                             </li>
                             <li>
                                 <a href="{% url 'blog:category' category_id=article.category_id %}" title="查看分类">
-                                    <i class="el-th-list"></i>{{ article.category }}
+                                    <i class="el-th-list"></i>分类：{{ article.category }}
                                 </a>
                             </li>
                         </ul>

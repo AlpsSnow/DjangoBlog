@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'blog',                     #把blog应用加入到项目应用列表中，对应blog/apps/BlogConfig/name=xxx
+    'users',                    #把users应用加入到项目应用中
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,14 +78,14 @@ WSGI_APPLICATION = 'DjangoBlog.wsgi.application'
 
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.sqlite3',         #sqlite3的配置
-        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),   #sqlite3的配置
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'djangoblog',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',        
+        'ENGINE': 'django.db.backends.sqlite3',         #sqlite3的配置
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),   #sqlite3的配置
+        #'ENGINE': 'django.db.backends.mysql',
+        #'NAME': 'djangoblog',
+        #'USER': 'root',
+        #'PASSWORD': '',
+        #'HOST': 'localhost',
+        #'PORT': '3306',        
     }
 }
 

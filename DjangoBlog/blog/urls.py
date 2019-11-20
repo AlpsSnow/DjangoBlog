@@ -10,5 +10,5 @@ urlpatterns = [
     path('about/',views.about,name='about'),
     path('detail/<int:id>',views.detail,name='detail'),
     path('articles/category/<int:category_id>',views.category,name='category'),
-    path('articles/tag/<str:tag_name>',views.tag,name='tag')
-]
+    path('articles/tag/<str:tag_name>',views.tag, name='tag')
+]  

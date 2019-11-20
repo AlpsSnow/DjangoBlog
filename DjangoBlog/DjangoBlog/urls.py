@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from blog import views
+from users import views as users_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),     
-    path('', views.index, name='index'),
+    path('admin/', admin.site.urls),
+    path('',users_views.register,name='register'),  # 用户注册画面
+    path('users/', include('users.urls',namespace='users')), # namespace='users'指定实例名users
     path('blog/', include('blog.urls', namespace='blog')) # namespace='blog'指定实例名blog
 ]
