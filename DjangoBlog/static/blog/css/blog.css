@@ -9,30 +9,42 @@
     background-color: #e7e7e7;
 }
 
+.arclist ul{
+    padding-left: 0px;
+}
 .arclist li{
     list-style:none;
 }
 
 .article-footer ul{
     list-style:none;
-    padding:15px;
 }
 .article-footer ul li{
-    float: left;
+    /*float: left;*/
     padding: 0 5px;
     color: #888;
+    display: inline-block;
 }
 
+/*
 .article-footer ul li:last-child{
     float: right;
 }
+*/
 
+.news ul{
+    padding-left: 0px;
+}
 .news li{
     list-style:none;
 }
 
 #tianqi{
     height: 30px;
+}
+
+.tags ul{
+    padding-left: 0px;
 }
 
 .tags ul li{
