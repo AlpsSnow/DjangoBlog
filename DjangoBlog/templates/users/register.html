@@ -39,9 +39,8 @@
 <body>
     <!--主体-->
     <main>
-        <div>
-            <h1>register page</h1>
-            <form method="POST">
+        <div style="position: absolute;width: 1000px; left:50%; margin-left:-500px;">            
+            <form class="form-horizontal" method="POST" role="form">
                 {% csrf_token %}
                 <fieldset>
                     <legend>
@@ -49,7 +48,7 @@
                     </legend>
                 </fieldset>
                 <div>
-                    <button type="submit">Sign Up</button>
+                    <button class="btn btn-default"　type="submit">Sign Up</button>
                 </div>
             </form>
             <div>
