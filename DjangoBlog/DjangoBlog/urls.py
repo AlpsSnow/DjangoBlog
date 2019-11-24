@@ -14,11 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
-from users import views as users_views
+from django.contrib.auth import views as auth_views #django系统自带的login/logout
+from django.urls import path, include
+from users import views as users_views  #users应用的views
+from blog import views as blog_views    #blog应用的views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('register/',users_views.register,name='register'),  # 用户注册画面
+    path('register/',users_views.register,name='register'),  # 用户注册
+    path('profile/',users_views.profile,name='profile'), # 用户profile
+    path('login/',auth_views.LoginView.as_view(template_name='users/login.html'),name='login'),    # 用户登录
+    path('logout/',auth_views.LogoutView.as_view(template_name='users/logout.html'),name='logout'), # 用户注销
+    path('', blog_views.index, name='root'), # 默认首页
     path('blog/', include('blog.urls', namespace='blog')) # namespace='blog'指定实例名blog
+
 ]

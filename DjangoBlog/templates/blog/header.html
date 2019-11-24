@@ -40,8 +40,14 @@
                         <li><a href="{% url 'blog:about'%}" style="color: #5bc0de;">关于</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
+                        <!--判断用户是否已经登录？-->
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'profile' %}" style="color: #5bc0de;"><span class="glyphicon glyphicon-credit-card"></span> profile</a></li>
+                        <li><a href="{% url 'logout' %}" style="color: #5bc0de;"><span class="glyphicon glyphicon-log-out"></span> 注销</a></li>
+                        {% else %}
                         <li><a href="{% url 'register' %}" style="color: #5bc0de;"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
-                        <li><a href="#" style="color: #5bc0de;"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                        <li><a href="{% url 'login' %}" style="color: #5bc0de;"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                        {% endif %}
                     </ul>
                 </div>
 

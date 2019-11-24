@@ -18,49 +18,54 @@
                             title="{{ article.title }}">{{ article.title }}</a>
                     </h3>
                 </div>
-                <div class="panel-body row">                   
+                <div class="panel-body row">
                     <div class="hidden-xs col-sm-3 col-md-3 col-lg-3">
                         <a href="{% url 'blog:detail' id=article.id %}">
                             <img class="img-responsive" src="{% static article.picture %}" alt="{{ article.title }}"
                                 title="{{ article.title }}" />
-                        </a>                         
-                    </div> 
+                        </a>
+                    </div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
                         <p>{{ article.digest }}</p>
-                    </div> 
+                    </div>
                 </div>
                 <div class="panel-footer">
                     <div class="article-footer">
                         <ul>
                             <li>
                                 <a title="{{ article.author }} {{ article.created_date }} 发表 ">
-                                    <i class="el-time"></i> {{ article.created_date }}
+                                    <span class="glyphicon glyphicon glyphicon-time"></span>
+                                    <i>{{ article.created_date }}</i>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" title="作者： {{ article.author }}">
-                                    <i class="el-user"></i>{{ article.author }}
+                                    <span class="glyphicon glyphicon glyphicon-user"></span>
+                                    <i>{{ article.author }}</i>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" title="已有 {{ article.comment }} 条评论">
-                                    <i class="el-comment"> {{ article.comment }}</i>
+                                    <span class="glyphicon glyphicon glyphicon-comment"></span>
+                                    <i>{{ article.comment }}</i>
                                 </a>
                             </li>
                             <li>
                                 <a title="已有 {{ article.view }} 次浏览">
-                                    <i class="el-eye-open"></i>{{ article.view }}
+                                    <span class="glyphicon glyphicon glyphicon-eye-open"></span>
+                                    <i>{{ article.view }}</i>
                                 </a>
                             </li>
                             <li>
                                 <a href="{% url 'blog:category' category_id=article.category_id %}" title="查看分类">
-                                    <i class="el-th-list"></i>{{ article.category }}
+                                    <span class="glyphicon glyphicon-th-large"></span>
+                                    <i>{{ article.category }}</i>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-            </div>        
+            </div>
         </li>
         {% endfor %}
     </ul>

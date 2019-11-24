@@ -1,0 +1,10 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<h2>你已经登出了</h2>
+<div class="border-top pt-3">
+    <small class="text-muted">
+        再次登录？<a class="ml-2" href="{% url 'login' %}">登录</a>
+    </small>
+</div>
+  
+{% endblock %}

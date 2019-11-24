@@ -138,3 +138,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, "collected_static")
 
 #设置crispy使用bootstrap3的css框架
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+#设置login成功后想要重定向的URL
+LOGIN_REDIRECT_URL='blog:index'
+
+#设置login的URL，（设置@login_required的重定向URL）
+LOGIN_URL = 'login'

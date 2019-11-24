@@ -1,5 +1,6 @@
 from django.shortcuts import render,reverse,redirect
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required #只有已经登录的用户才能访问视图
 from .models import Tag, Category, Article
 
 # Create your views here.
@@ -28,7 +29,7 @@ def detail(request,id):
             article.viewed()
             return render(request, 'blog/detail.html', {"article": article})
     except:
-        return redirect(reverse('blog:root'))
+        return redirect(reverse('blog:index'))
 
 def category(request,category_id):
     """
@@ -61,10 +62,12 @@ def about(request):
     output = '这是blog的about页面'
     return HttpResponse(output)
 
+@login_required
 def archive(request):
     """
     blog的archive页
     @param request
     @return 'blog/archive.html'
     """    
-    return redirect(reverse('blog:root')) #'blog/archive'的URL将重定向到blog:root的路由
+    output = '这是blog的archive页面'
+    return HttpResponse(output)
