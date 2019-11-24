@@ -1,63 +1,23 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="zh">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>
-        {% block title %}
-        阿尔卑斯的雪
-        {% endblock %}
-    </title>
-
-    {% block meta %}
-    <!--SEO-->
-    <meta name="keywords" content="python,Django,blog,Web,阿尔卑斯的雪">
-    <meta name="description" content="阿尔卑斯的雪的博客,提供技术分享的个人博客网站" />
-    {% endblock %}
-
-    <meta name="author" content="AlpsSnow" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Favicons -->
-    <link rel="shortcut icon" href="{% static 'blog/image/icon/favicon.dj.ico' %}">
-
-    <!-- 引入bootstrap的css文件 -->
-    <link rel="stylesheet" href="{% static 'bootstrap/3.3.7/css/bootstrap.min.css' %}">
-    <!-- 引入jquery的js文件 -->
-    <script src="{% static 'jquery/3.4.1/jquery.js'%}"></script>
-    <!-- 引入bootstrap的js文件 -->
-    <script src="{% static 'bootstrap/3.3.7/js/bootstrap.min.js' %}"></script>
-
-    <!-- 引入blog的css文件 -->
-    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
-
-</head>
-
-<body>
-    <!--主体-->
-    <main>
-        <div style="position: absolute;width: 1000px; left:50%; margin-left:-500px;">            
-            <form class="form-horizontal" method="POST" role="form">
-                {% csrf_token %}
-                <fieldset>
-                    <legend>
-                        {{ form.as_p }}
-                    </legend>
-                </fieldset>
-                <div>
-                    <button class="btn btn-default"　type="submit">Sign Up</button>
-                </div>
-            </form>
-            <div>
-                <small>
-                    已经有账号？<a href="{% url 'blog:root' %}">Sign In</a>
-                </small>
-            </div>
-        </div>      
-    </main>
-</body>
-
-</html>
+{% extends "blog/base.html" %}
+<!--load crispy_forms_tags-->
+{% load crispy_forms_tags%}
+{% block content %}
+<div>            
+    <form class="form-horizontal" method="POST" role="form">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">今天加入</legend>
+            <!--django的默认表单验证：{{ form.as_p }}-->
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info"　type="submit">Sign Up</button>
+        </div>
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            已经有账号？<a class="ml-2" href="{% url 'blog:index' %}">登录</a>
+        </small>
+    </div>
+</div>    
+{% endblock %}

@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'blog',                     #把blog应用加入到项目应用列表中，对应blog/apps/BlogConfig/name=xxx
     'users',                    #把users应用加入到项目应用中
+    'crispy_forms',             #第三方form验证插件包
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,14 +79,14 @@ WSGI_APPLICATION = 'DjangoBlog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',         #sqlite3的配置
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),   #sqlite3的配置
-        #'ENGINE': 'django.db.backends.mysql',
-        #'NAME': 'djangoblog',
-        #'USER': 'root',
-        #'PASSWORD': '',
-        #'HOST': 'localhost',
-        #'PORT': '3306',        
+        #'ENGINE': 'django.db.backends.sqlite3',         #sqlite3的配置
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),   #sqlite3的配置
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'djangoblog',
+        'USER': 'root',
+        'PASSWORD': 'bo?kee123',
+        'HOST': 'localhost',
+        'PORT': '3306',        
     }
 }
 
@@ -134,3 +135,6 @@ STATICFILES_DIRS = (
 
 #部署的时候才发挥作用,通过manage.py collectstatic可以把所有static文件统一收集到collected_static下
 STATIC_ROOT = os.path.join(BASE_DIR, "collected_static")  
+
+#设置crispy使用bootstrap3的css框架
+CRISPY_TEMPLATE_PACK = 'bootstrap3'

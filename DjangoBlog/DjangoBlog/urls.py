@@ -19,7 +19,6 @@ from users import views as users_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',users_views.register,name='register'),  # 用户注册画面
-    path('users/', include('users.urls',namespace='users')), # namespace='users'指定实例名users
+    path('register/',users_views.register,name='register'),  # 用户注册画面
     path('blog/', include('blog.urls', namespace='blog')) # namespace='blog'指定实例名blog
 ]
