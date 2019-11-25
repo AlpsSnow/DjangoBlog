@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.contrib.auth import views as auth_views #django系统自带的login/logout
 from django.urls import path, include
+from django.conf import settings       # for upload image 只适用于开发环境
+from django.conf.urls.static import static # for upload image 只适用于开发环境
 from users import views as users_views  #users应用的views
 from blog import views as blog_views    #blog应用的views
 
@@ -27,5 +29,7 @@ urlpatterns = [
     path('logout/',auth_views.LogoutView.as_view(template_name='users/logout.html'),name='logout'), # 用户注销
     path('', blog_views.index, name='root'), # 默认首页
     path('blog/', include('blog.urls', namespace='blog')) # namespace='blog'指定实例名blog
+] 
 
-]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -133,14 +133,26 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"), # BASE_DIR指project的路径，即DjangoBlog目录的路径
 )
 
-#部署的时候才发挥作用,通过manage.py collectstatic可以把所有static文件统一收集到collected_static下
-STATIC_ROOT = os.path.join(BASE_DIR, "collected_static")  
+# 部署的时候才发挥作用,通过manage.py collectstatic可以把所有static文件统一收集到collected_static下
+STATIC_ROOT = os.path.join(BASE_DIR, "collected_static") 
 
-#设置crispy使用bootstrap3的css框架
+# 处于性能考虑我们将媒体文件存储在文件系统中，而不是数据库中。
+# 1.上传图像的位置将位于文件系统上
+#  1.1 models中希望将图像上传到名为‘profile_pics’目录中
+#  1.2 上传图片后，将会在媒体目录（media）内创建一个profile_pics目录，将图片放入，该媒体目录位于项目根目录
+# 2. 媒体URL是我们在浏览器中访问图形的方式
+
+# 媒体目录 : 媒体在文件系统中路径，项目根目录下的media文件夹
+MEDIA_ROOT= os.path.join(BASE_DIR,'media')
+
+# 媒体URL：是媒体目录的公共URL，就是我们通过浏览器访问媒体的URL
+MEDIA_URL='/media/'
+
+# 设置crispy使用bootstrap3的css框架
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
-#设置login成功后想要重定向的URL
+# 设置login成功后想要重定向的URL
 LOGIN_REDIRECT_URL='blog:index'
 
-#设置login的URL，（设置@login_required的重定向URL）
+# 设置login的URL，（设置@login_required的重定向URL）
 LOGIN_URL = 'login'
