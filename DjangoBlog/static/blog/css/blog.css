@@ -26,12 +26,6 @@
     display: inline-block;
 }
 
-/*
-.article-footer ul li:last-child{
-    float: right;
-}
-*/
-
 .news ul{
     padding-left: 0px;
 }
@@ -52,4 +46,35 @@
     padding: 0 5px;  
     float: left;
     margin: 0 2px;
+}
+
+/* users app*/
+.profile-img{
+    float: left;
+    position: relative;
+}
+.rounded-circle{
+   border: 1px solid #e6ebf2;
+   border-radius: 50%; 
+}
+.account-img{
+    width: 64px;
+    height: 64px;
+}
+.profile-info{
+    margin-left: 80px;
+    font-size: 13px;
+    word-wrap:break-word;
+
+}
+.profile-base{
+    overflow: hidden;
+    margin: 12px 0;
+    font-size: 14px;
+    line-height: 1.2;
+}
+.profile-info p{    
+    line-height: 1.4;
+    font-size: 13px;
+    margin: 0;
 }

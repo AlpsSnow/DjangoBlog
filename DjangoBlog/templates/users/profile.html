@@ -1,12 +1,15 @@
 {% extends "blog/base.html" %}
 {% block content %}
-    <div class="content-section">
-        <div class="media">
-            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" alt="userimage">
-            <div class="media-body">
-                <h2 class="account-heading">{{ user.username }}</h2>
-                <p class="text-secondary">{{ user.email }}</p>
-            </div>
-        </div>
+<div class="profile">
+    <div class="profile-img">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" alt="userimage">
     </div>
+    <div class="profile-info">
+        <h3>{{ user.username }}</h3>
+        <div class="profile-base">
+            <!--关注，粉丝，地理信息坐标等-->
+        </div>
+        <p>{{ user.email }}</p> 
+   </div>
+</div>
 {% endblock %}
