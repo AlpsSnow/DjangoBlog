@@ -12,3 +12,8 @@
 4.```python manage.py migrate```  
 
 5.```python manage.py runserver```  
+
+### django开发blog
+1. [起步](./readme/起步.md)  
+1. [应用与路由](./readme/应用与路由.md)  
+1. [模板](./readme/模板.md)  

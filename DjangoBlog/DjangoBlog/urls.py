@@ -19,7 +19,7 @@ from django.urls import path, include
 from django.conf import settings       # for upload image 只适用于开发环境
 from django.conf.urls.static import static # for upload image 只适用于开发环境
 from users import views as users_views  #users应用的views
-from blog import views as blog_views    #blog应用的views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,8 +27,7 @@ urlpatterns = [
     path('profile/',users_views.profile,name='profile'), # 用户profile
     path('login/',auth_views.LoginView.as_view(template_name='users/login.html'),name='login'),    # 用户登录
     path('logout/',auth_views.LogoutView.as_view(template_name='users/logout.html'),name='logout'), # 用户注销
-    path('', blog_views.index, name='root'), # 默认首页
-    path('blog/', include('blog.urls', namespace='blog')) # namespace='blog'指定实例名blog
+    path('', include('blog.urls', namespace='blog')) #默认首页 namespace='blog'指定实例名blog
 ] 
 
 if settings.DEBUG:
