@@ -31,8 +31,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'blog',                     #把blog应用加入到项目应用列表中，对应blog/apps/BlogConfig/name=xxx
-    'users',                    #把users应用加入到项目应用中
+    'blog.apps.BlogConfig',                      #把blog应用加入到项目应用列表中，对应blog/apps/BlogConfig
+    'users.apps.UsersConfig',                    #把users应用加入到项目应用中  (注意：为了使信号量有效必须写成"xxx.apps.xxxConfig)
     'crispy_forms',             #第三方form验证插件包
     'django.contrib.admin',
     'django.contrib.auth',
