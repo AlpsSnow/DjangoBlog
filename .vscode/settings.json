@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "C:\\Users\\wangxing.DESKTOP-VHFOLST\\envs\\DjangoBlog\\Scripts\\python.exe"
+    "python.pythonPath": "C:\\Users\\wangxing.DESKTOP-VHFOLST\\envs\\DjangoBlog\\Scripts\\python.exe",
+    "emmet.triggerExpansionOnTab": true
 }
