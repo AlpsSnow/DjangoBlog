@@ -2,31 +2,35 @@
 {% load crispy_forms_tags%}
 {% block content %}
 <div>
-    <div class="profile">
-        <div class="profile-img">
-            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" alt="userimage">
+    <div class="media">
+        <div class="media-left">
+            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" alt="user-image">
         </div>
-        <div class="profile-info">
-            <h3>{{ user.username }}</h3>
-            <div class="profile-base">
-                <!--关注，粉丝，地理信息坐标等-->
+        <div class="media-body">
+            <h3 class="media-heading">{{ user.username }}</h3>
+            <div class="account-base">
+                <!--关注，粉丝，地理信息坐标等-->                
             </div>
             <p>{{ user.email }}</p>
         </div>
     </div>
-    <!--enctype="multipart/form-data" 确保图片可以被保存到数据库中-->
-    <form method="POST" role="form" enctype="multipart/form-data">
-        {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">更新个人信息</legend>
-            <!--django的默认表单验证：{{ form.as_p }}-->
-            {{ u_form|crispy }}
-            {{ p_form|crispy }}
-        </fieldset>
-        <div class="form-group">
-            <button class="btn btn-primary btn-outline-info" 　type="submit">更新</button>
-        </div>
-    </form>
+    <hr>
+    <div class="update-profile-from">
+        <!--enctype="multipart/form-data" 确保图片可以被保存到数据库中-->
+        <form method="POST" role="form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">更新个人信息</legend>
+                <!--django的默认表单验证：{{ form.as_p }}-->
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-primary btn-outline-info" 　type="submit">更新</button>
+            </div>
+        </form>
+    </div>
+
 
 </div>
 {% endblock %}

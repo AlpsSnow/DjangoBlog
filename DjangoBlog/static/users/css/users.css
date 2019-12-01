@@ -1,8 +1,4 @@
 /* users app*/
-.profile-img{
-    float: left;
-    position: relative;
-}
 .rounded-circle{
    border: 1px solid #e6ebf2;
    border-radius: 50%; 
@@ -11,20 +7,6 @@
     width: 64px;
     height: 64px;
 }
-.profile-info{
-    margin-left: 80px;
-    font-size: 13px;
-    word-wrap:break-word;
-
-}
-.profile-base{
-    overflow: hidden;
-    margin: 12px 0;
-    font-size: 14px;
-    line-height: 1.2;
-}
-.profile-info p{    
-    line-height: 1.4;
-    font-size: 13px;
-    margin: 0;
+.update-profile-from{
+    padding-top: 50px;
 }
