@@ -1,5 +1,5 @@
 #from django.conf import settings
-from .models import Tag, Category, Article
+from .models import Tag, Category, Article, CarouselImg
 
 """
 blog app上下文渲染器
@@ -14,10 +14,14 @@ def sidebar(request):
     category_list = Category.objects.all() 
 
     # 文章阅读量排行榜
-    article_ranklist = Article.objects.all().order_by('-view')[0:6]  
+    article_ranklist = Article.objects.all().order_by('-view')[0:6]
     
+    # 轮播图
+    carouselimg_list = CarouselImg.objects.all()
+
     return {
         'category_list': category_list,
         'article_rank': article_ranklist,
-        'tag_list': tag_list 
+        'tag_list': tag_list,
+        'carouselimg_list':carouselimg_list
     }

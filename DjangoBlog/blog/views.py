@@ -13,8 +13,13 @@ def index(request):
     """ 
     article_list = Article.objects.all().order_by('-created_date')[0:5]
     for article in article_list:
-        article.picture = 'blog/image/article_picture/{}'.format(article.picture)     
-    return render(request, 'blog/index.html', {"article_list": article_list})
+        article.picture = 'blog/image/article_picture/{}'.format(article.picture)    
+
+    context = {
+        'article_list': article_list
+    }
+    
+    return render(request, 'blog/index.html', context)
 
 def detail(request,id):
     """

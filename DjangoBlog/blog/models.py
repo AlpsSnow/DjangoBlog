@@ -62,3 +62,15 @@ class Article(models.Model):
         """
         self.comment += 1
         self.save(update_fields=['comment'])
+
+class CarouselImg(models.Model):
+    title = models.CharField(verbose_name=u'标题', max_length=200)    # 轮播图的标题    
+    #上传路径到：carousel_pics
+    image = models.ImageField(verbose_name=u'图片', upload_to='carousel_pics') # 轮播图
+
+    class Meta:
+        verbose_name = u"轮播图"   #模型类的可读名称
+        verbose_name_plural = verbose_name  #模型类的可读名称的复数形式 eg. xxx+s
+    
+    def __str__(self):
+        return self.title
