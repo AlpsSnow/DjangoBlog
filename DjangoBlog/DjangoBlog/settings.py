@@ -33,7 +33,8 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',                      #把blog应用加入到项目应用列表中，对应blog/apps/BlogConfig
     'users.apps.UsersConfig',                    #把users应用加入到项目应用中  (注意：为了使信号量有效必须写成"xxx.apps.xxxConfig)
-    'crispy_forms',             #第三方form验证插件包
+    'crispy_forms',                              #第三方form验证插件包
+    'markdown_deux',                             #为了在项目中支持Markdown语法，使用第三方包django-markdown_deux
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

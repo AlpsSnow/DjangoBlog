@@ -1,7 +1,8 @@
 <!--博文详细画面-->
 {% extends "blog/base.html" %}
 {% block content %}
-{% load static %}
+<!--引入markdown标签-->
+{% load markdown_deux_tags %}
 <!--博文详细-->
 <div class="article">
     <div class="panel panel-info">
@@ -9,7 +10,8 @@
             <h3 class="panel-title">{{ article.title }}</h3>
         </div>
         <div class="panel-body">
-            <p>{{ article.content | safe}}</p>
+            <!--添加markdown过滤-->
+            <p>{{ article.content | markdown }}</p>
         </div>
     </div>
 </div>
