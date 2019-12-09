@@ -16,7 +16,7 @@ class Profile(models.Model):
         return f'{self.user.username} Profile'
 
     # 重写父类（models.Model）的save的方法，用来保存上传图片的缩略图
-    def save(self):
+    def save(self, force_insert=True, using=None):
         super().save()
         img = Image.open(self.image.path)
         if img.height > 300 or img.width > 300:            

@@ -11,8 +11,8 @@ def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         #判断表单数据是否正确
-        if form.is_valid():
-            form.save() #将注册的用户保存到数据库
+        if form.is_valid():            
+            form.save()     #将注册的用户保存到数据库
             username = form.cleaned_data.get('username') #取得表单的username           
             messages.success(request,f'成功创建账号 { username } !')
             messages.info(request,f'你现在可以去登录了！')

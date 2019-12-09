@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<div>            
+    <form method="POST" role="form">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">删除博文</legend>
+            <h2>确定要删除博文 "{{ object.title }}" 吗？ </h2>
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-danger"　type="submit">是的，删除</button>
+            <a class="btn btn-primary" href="{% url 'blog:detail' object.id %}">取消</a>
+        </div>
+    </form>   
+</div>    
+{% endblock %}

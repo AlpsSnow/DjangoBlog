@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags%}
+{% block content %}
+<div>            
+    <form method="POST" role="form">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">创建博文</legend>            
+            {{ form | crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-primary btn-outline-info"　type="submit">发布</button>
+        </div>
+    </form>   
+</div>    
+{% endblock %}

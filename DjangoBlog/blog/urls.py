@@ -2,7 +2,13 @@ from django.urls import path
 from . import views
 
 # 使用通用视图
-from .views import ArticleListView,ArticleDetailView
+from .views import (
+    ArticleListView,
+    ArticleDetailView,
+    ArticleCreateView,
+    ArticleUpdateView,
+    ArticleDeleteView
+)
 
 app_name = 'blog'  #定义应用程序的命名空间(访问路由地时候可以用“应用命名空间：路由name”)
 
@@ -15,6 +21,9 @@ urlpatterns = [
     path('archive/',views.archive,name='archive'),
     path('about/',views.about,name='about'),
     path('detail/<int:pk>', ArticleDetailView.as_view(), name='detail'),   # 使用通用视图
+    path('detail/new/', ArticleCreateView.as_view(), name='create'),   # 使用通用视图
+    path('detail/<int:pk>/update/', ArticleUpdateView.as_view(), name='update'),   # 使用通用视图
+    path('detail/<int:pk>/delete/', ArticleDeleteView.as_view(), name='delete'),   # 使用通用视图
     path('articles/category/<int:category_id>',views.category,name='category'),
     path('articles/tag/<str:tag_name>',views.tag, name='tag')
 ]  
