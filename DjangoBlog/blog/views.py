@@ -1,7 +1,13 @@
 from django.shortcuts import render,reverse,redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required #只有已经登录的用户才能访问视图
+# 使用通用视图
+from django.views.generic import ListView, DetailView
+
+# 使用函数方式视图
 from .models import Tag, Category, Article
+
+
 
 # Create your views here.
 
@@ -76,3 +82,18 @@ def archive(request):
     """    
     output = '这是blog的archive页面'
     return HttpResponse(output)
+
+
+# 使用通用视图，比起传统的函数方式，django对通用视图有很多后台处理
+# 只需要简单变量设置
+class ArticleListView(ListView):
+    model = Article
+    template_name = 'blog/index.html'  # <app>/<model>_<viewtype>.html
+    context_object_name = 'article_list'    #模板中使用的上下文变量名
+    ordering = ['-last_mod_date']
+
+
+class ArticleDetailView(DetailView):
+    model = Article
+    template_name = 'blog/detail.html'
+    
