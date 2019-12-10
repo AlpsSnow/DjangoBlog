@@ -25,6 +25,10 @@ body {
     float: left;
 }
 
+.article-item .glyphicon{
+    padding-right: 5px;
+}
+
 .article-item-main{
     position: relative;
     margin-left: 80px;
@@ -53,6 +57,7 @@ body {
     margin: 0;
     font-size: 18px;
     font-weight: 700;
+    color: #000;
 }
 .article-item-content .article-content{
     margin-top: 7px;
@@ -73,7 +78,6 @@ body {
     color: #666c72;
     margin-right: 24px;
     line-height: 1.2;
-    user-select: none;
 }
 
 .article-item-control:after {

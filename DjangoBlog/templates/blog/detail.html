@@ -5,12 +5,12 @@
 {% load markdown_deux_tags %}
 <!--博文详细-->
 <article class="article-item">
-        <a href="#" class="avatar">
+        <a href="{% url 'blog:userarticlelist' article.author.username %}" class="avatar">
             <img class="rounded-circle account-img" src="{{ object.author.profile.image.url }}" alt="author-image">
         </a>
         <div class="article-item-main">
             <div class="article-item-info">
-                <a href="#" class="author-name">{{ object.author.username }}</a>
+                <a href="{% url 'blog:userarticlelist' article.author.username %}" class="author-name">{{ object.author.username }}</a>
                 <a href="{% url 'blog:detail' article.id %}" class="date-and-source">
                     <span class="glyphicon glyphicon glyphicon-time"></span>{{ object.created_date }}
                 </a>
