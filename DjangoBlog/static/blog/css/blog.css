@@ -14,6 +14,82 @@ body {
     background-color: #e7e7e7;
 }
 
+
+.article-item {
+    border-bottom: 1px solid #d9dce4;
+    padding: 15px 0 5px;
+    position: relative;
+}
+
+.article-item>.avatar{
+    float: left;
+}
+
+.article-item-main{
+    position: relative;
+    margin-left: 80px;
+}
+
+.article-item-info{
+    margin-bottom: 6px;
+}
+
+.article-item-info .author-name{
+    font-size: 16px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.article-item-info .date-and-source{
+    font-size: 14px;
+    color: #666c72;
+    margin-right: 10px;
+}
+.article-item-content{
+    cursor: pointer;
+}
+
+.article-title{
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+.article-item-content .article-content{
+    margin-top: 7px;
+    overflow: hidden;
+    font-size: 14px;    
+}
+
+.article-item-footer{
+    margin-top: 10px;
+    color: #666c72;
+    font-size: 13px;
+}
+
+.article-item-control{
+    position: relative;
+    display:inline-block;
+    margin-bottom: 5px;
+    color: #666c72;
+    margin-right: 24px;
+    line-height: 1.2;
+    user-select: none;
+}
+
+.article-item-control:after {
+    position:absolute;
+    content:'';
+    right:-12px;
+    top:4px;
+    height:14px;
+    width:1px;
+    background-color:#dadee5
+}
+
+
+
+
+
 .arclist ul{
     padding-left: 0px;
 }

@@ -1,110 +1,81 @@
 {% extends "blog/base.html" %}
-
 {% block content %}
 {% load static %}
-<!--轮播图-->
-<div id="blogCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
-    <!--轮播(carousel)图标题-->
-    <ol class="carousel-indicators">
-        {% for carouselimg in carouselimg_list %}
-        {% if forloop.first %}
-        <li data-target="#blogCarousel" data-slide-to="{{ carouselimg.pk }}" class="active"></li>
-        {% else %}
-        <li data-target="#blogCarousel" data-slide-to="{{ carouselimg.pk }}"></li>
-        {% endif %}
-        {% endfor %}
-    </ol>
-    <!--轮播(carousel)图项目-->
-    <div class="carousel-inner">
-        {% for carouselimg in carouselimg_list %}
-        {% if forloop.first %}
-        <div class="item active">
-        {% else %}
-        <div class="item">
-        {% endif%}
-            <img class="img-responsive" src="{{ carouselimg.image.url }}" alt="{{ carouselimg.title }}">
-            <div class="carousel-caption">{{ carouselimg.title }}</div>
+<div>
+    <!--轮播图-->
+    <div id="blogCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+        <!--轮播(carousel)图标题-->
+        <ol class="carousel-indicators">
+            {% for carouselimg in carouselimg_list %}
+            {% if forloop.first %}
+            <li data-target="#blogCarousel" data-slide-to="{{ carouselimg.pk }}" class="active"></li>
+            {% else %}
+            <li data-target="#blogCarousel" data-slide-to="{{ carouselimg.pk }}"></li>
+            {% endif %}
+            {% endfor %}
+        </ol>
+        <!--轮播(carousel)图项目-->
+        <div class="carousel-inner">
+            {% for carouselimg in carouselimg_list %}
+            {% if forloop.first %}
+            <div class="item active">
+                {% else %}
+                <div class="item">
+                    {% endif%}
+                    <img class="img-responsive" src="{{ carouselimg.image.url }}" alt="{{ carouselimg.title }}">
+                    <div class="carousel-caption">{{ carouselimg.title }}</div>
+                </div>
+                {% endfor %}
+            </div>
+            <!--轮播(carousel)图按钮-->
+            <a class="left carousel-control" href="#blogCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#blogCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        {% endfor %}
-        </div>
-        <!--轮播(carousel)图按钮-->
-        <a class="left carousel-control" href="#blogCarousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#blogCarousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
     </div>
 
-    <!--博文列表-->
-    <div class="arclist">
+    <div class="article-list">
         <h4 class="index-title homeh4" style="padding-top: 30px;">
             <a href="#"><i class="el-certificate"></i><span class="label label-info">最新文章</span></a>
         </h4>
-        <!--列表开始-->
-        <ul>
-            {% for article in article_list %}
-            <li>
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">
-                            <a href="{% url 'blog:detail' article.id %}"
-                                title="{{ article.title }}">{{ article.title }}</a>
-                        </h3>
-                    </div>
-                    <div class="panel-body row">
-                        <div class="hidden-xs col-sm-3 col-md-3 col-lg-3">
-                            <a href="{% url 'blog:detail' article.id %}">
-                                <img class="img-responsive" src="{% static article.picture %}" alt="{{ article.title }}"
-                                    title="{{ article.title }}" />
-                            </a>
-                        </div>
-                        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-                            <p>{{ article.digest }}</p>
-                        </div>
-                    </div>
-                    <div class="panel-footer">
-                        <div class="article-footer">
-                            <ul>
-                                <li>
-                                    <a title="{{ article.author }} {{ article.created_date }} 发表 ">
-                                        <span class="glyphicon glyphicon glyphicon-time"></span>
-                                        <i>{{ article.created_date }}</i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="作者： {{ article.author }}">
-                                        <span class="glyphicon glyphicon glyphicon-user"></span>
-                                        <i>{{ article.author }}</i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="已有 {{ article.comment }} 条评论">
-                                        <span class="glyphicon glyphicon glyphicon-comment"></span>
-                                        <i>{{ article.comment }}</i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a title="已有 {{ article.view }} 次浏览">
-                                        <span class="glyphicon glyphicon glyphicon-eye-open"></span>
-                                        <i>{{ article.view }}</i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'blog:category' category_id=article.category_id %}" title="查看分类">
-                                        <span class="glyphicon glyphicon-th-large"></span>
-                                        <i>{{ article.category }}</i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+        {% for article in article_list %}
+        <article class="article-item">
+            <a href="#" class="avatar">
+                <img class="rounded-circle account-img" src="{{ article.author.profile.image.url }}" alt="author-image">
+            </a>
+            <div class="article-item-main">
+                <div class="article-item-info">
+                    <a href="#" class="author-name">{{ article.author.username }}</a>
+                    <a href="{% url 'blog:detail' article.id %}" class="date-and-source">
+                        <span class="glyphicon glyphicon glyphicon-time"></span>{{ article.created_date }}
+                    </a>
+                    <a href="{% url 'blog:category' category_id=article.category_id %}" class="date-and-source">
+                        <span class="glyphicon glyphicon-th-large"></span>{{ article.category }}
+                    </a>
+                </div>
+                <div class="article-item-body">
+                    <div class="article-item-content">                        
+                        <a href="{% url 'blog:detail' article.id %}">
+                            <h2 class="article-title">{{ article.title }}</h2>
+                        </a>
+                        <div class="article-content">{{ article.digest }}</div>                        
                     </div>
                 </div>
-            </li>
-            {% endfor %}
-        </ul>
-
+                <div class="article-item-footer">
+                    <a href="#" class="article-item-control">
+                        <span class="glyphicon glyphicon glyphicon-eye-open"></span>{{ article.view }}
+                    </a>
+                    <a href="#" class="article-item-control">
+                        <span class="glyphicon glyphicon glyphicon-comment"></span>{{ article.comment }}
+                    </a>
+                </div>
+            </div>
+        </article>
+        {% endfor %}
     </div>
     {% endblock %}

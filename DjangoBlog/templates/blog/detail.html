@@ -4,27 +4,40 @@
 <!--引入markdown标签-->
 {% load markdown_deux_tags %}
 <!--博文详细-->
-<div class="article">
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h3 class="panel-title">{{ object.title }}</h3>
-        </div>
-        <div class="panel-body">
-            <!--添加markdown过滤-->
-            <p>{{ object.content | markdown }}</p>
-        </div>
-        <div class="panel-footer">
-            <div class="article-footer">
-                <ul>
-                    <li>
-                        {% if object.author == user %}
-                        <a class="btn btn-info btn-sm mt-1 mb-1" href="{% url 'blog:update' object.id %}" title="更新博文">更新</a>
-                        <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'blog:delete' object.id %}" title="删除博文">删除</a>
-                        {% endif %}
-                    </li>
-                </ul>
+<article class="article-item">
+        <a href="#" class="avatar">
+            <img class="rounded-circle account-img" src="{{ object.author.profile.image.url }}" alt="author-image">
+        </a>
+        <div class="article-item-main">
+            <div class="article-item-info">
+                <a href="#" class="author-name">{{ object.author.username }}</a>
+                <a href="{% url 'blog:detail' article.id %}" class="date-and-source">
+                    <span class="glyphicon glyphicon glyphicon-time"></span>{{ object.created_date }}
+                </a>
+                <a href="{% url 'blog:category' category_id=article.category_id %}" class="date-and-source">
+                    <span class="glyphicon glyphicon-th-large"></span>{{ object.category }}
+                </a>
+                {% if object.author == user %}
+                    <a class="btn btn-info btn-sm mt-1 mb-1" href="{% url 'blog:update' object.id %}" title="更新博文">更新</a>
+                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'blog:delete' object.id %}" title="删除博文">删除</a>
+                {% endif %}
+            </div>
+            <div class="article-item-body">
+                <div class="article-item-content">                        
+                    <a href="{% url 'blog:detail' article.id %}">
+                        <h2 class="article-title">{{ object.title }}</h2>
+                    </a>
+                    <div class="article-content">{{ object.content | markdown }}</div>                        
+                </div>
+            </div>
+            <div class="article-item-footer">
+                <a href="#" class="article-item-control">
+                    <span class="glyphicon glyphicon glyphicon-eye-open"></span>{{ object.view }}
+                </a>
+                <a href="#" class="article-item-control">
+                    <span class="glyphicon glyphicon glyphicon-comment"></span>{{ object.comment }}
+                </a>
             </div>
         </div>
-    </div>
-</div>
+</article>
 {% endblock %}
