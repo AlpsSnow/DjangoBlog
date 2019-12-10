@@ -40,9 +40,6 @@
     </div>
 
     <div class="article-list">
-        <h4 class="index-title homeh4" style="padding-top: 30px;">
-            <a href="#"><i class="el-certificate"></i><span class="label label-info">最新文章</span></a>
-        </h4>
         {% for article in article_list %}
         <article class="article-item">
             <a href="{% url 'blog:userarticlelist' article.author.username %}" class="avatar">

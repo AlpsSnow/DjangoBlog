@@ -1,5 +1,5 @@
-.blog-header{
-    top: 0px; 
+.blog-header {
+    top: 0px;
     width: 100%;
     position: fixed;
     z-index: 1;
@@ -10,10 +10,13 @@ body {
     margin-bottom: 60px;
 }
 
-.blog-header li:hover{
+.blog-header li:hover {
     background-color: #e7e7e7;
 }
 
+.article-list {
+    margin: 30px 0;
+}
 
 .article-item {
     border-bottom: 1px solid #d9dce4;
@@ -21,59 +24,65 @@ body {
     position: relative;
 }
 
-.article-item>.avatar{
+.article-item>.avatar {
     float: left;
 }
 
-.article-item .glyphicon{
+.glyphicon {
     padding-right: 5px;
 }
 
-.article-item-main{
+.article-item-main {
     position: relative;
     margin-left: 80px;
 }
 
-.article-item-info{
+.article-item-info {
     margin-bottom: 6px;
 }
 
-.article-item-info .author-name{
+.article-item-info .author-name {
     font-size: 16px;
     font-weight: 700;
     margin-right: 10px;
 }
 
-.article-item-info .date-and-source{
+.article-item-info .date-and-source {
     font-size: 14px;
     color: #666c72;
     margin-right: 10px;
 }
-.article-item-content{
+
+.article-item-info .article-item-btn {
+    margin: 5px 0;
+}
+
+.article-item-content {
     cursor: pointer;
 }
 
-.article-title{
+.article-title {
     margin: 0;
     font-size: 18px;
     font-weight: 700;
     color: #000;
 }
-.article-item-content .article-content{
+
+.article-item-content .article-content {
     margin-top: 7px;
     overflow: hidden;
-    font-size: 14px;    
+    font-size: 14px;
 }
 
-.article-item-footer{
+.article-item-footer {
     margin-top: 10px;
     color: #666c72;
     font-size: 13px;
 }
 
-.article-item-control{
+.article-item-control {
     position: relative;
-    display:inline-block;
+    display: inline-block;
     margin-bottom: 5px;
     color: #666c72;
     margin-right: 24px;
@@ -81,54 +90,35 @@ body {
 }
 
 .article-item-control:after {
-    position:absolute;
-    content:'';
-    right:-12px;
-    top:4px;
-    height:14px;
-    width:1px;
-    background-color:#dadee5
+    position: absolute;
+    content: '';
+    right: -12px;
+    top: 4px;
+    height: 14px;
+    width: 1px;
+    background-color: #dadee5
 }
 
-
-
-
-
-.arclist ul{
+/*right.html*/
+.news ul {
     padding-left: 0px;
 }
-.arclist li{
-    list-style:none;
+
+.news li {
+    list-style: none;
 }
 
-.article-footer ul{
-    list-style:none;
-}
-.article-footer ul li{
-    /*float: left;*/
-    padding: 0 5px;
-    color: #888;
-    display: inline-block;
-}
-
-.news ul{
-    padding-left: 0px;
-}
-.news li{
-    list-style:none;
-}
-
-#tianqi{
+#tianqi {
     height: 30px;
 }
 
-.tags ul{
+.tags ul {
     padding-left: 0px;
 }
 
-.tags ul li{
-    list-style:none;
-    padding: 0 5px;  
+.tags ul li {
+    list-style: none;
+    padding: 0 5px;
     float: left;
     margin: 0 2px;
 }
@@ -139,5 +129,5 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    display:none;
+    display: none;
 }

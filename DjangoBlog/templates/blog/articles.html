@@ -4,40 +4,40 @@
 {% load static %}
 <!--博文列表-->
 <div class="article-list">
-        <h4 class="index-title homeh4" style="padding-top: 30px;">
-            <a href="#"><i class="el-certificate"></i><span class="label label-info">最新文章</span></a>
-        </h4>
-        {% for article in article_list %}
-        <article class="article-item">
-            <a href="{% url 'blog:userarticlelist' article.author.username %}" class="avatar">
-                <img class="rounded-circle account-img" src="{{ article.author.profile.image.url }}" alt="author-image">
-            </a>
-            <div class="article-item-main">
-                <div class="article-item-info">
-                    <a href="{% url 'blog:userarticlelist' article.author.username %}" class="author-name">{{ article.author.username }}</a>
-                    <a href="{% url 'blog:detail' article.id %}" class="date-and-source">
-                        <span class="glyphicon glyphicon glyphicon-time"></span>{{ article.created_date }}
+    {% for article in article_list %}
+    <article class="article-item">
+        <a href="{% url 'blog:userarticlelist' article.author.username %}" class="avatar">
+            <img class="rounded-circle account-img" src="{{ article.author.profile.image.url }}" alt="author-image">
+        </a>
+        <div class="article-item-main">
+            <div class="article-item-info">
+                <a href="{% url 'blog:userarticlelist' article.author.username %}"
+                    class="author-name">{{ article.author.username }}</a>
+                <a href="{% url 'blog:detail' article.id %}" class="date-and-source">
+                    <span class="glyphicon glyphicon glyphicon-time"></span>{{ article.created_date }}
+                </a>
+                <a href="{% url 'blog:category' category_id=article.category_id %}" class="date-and-source">
+                    <span class="glyphicon glyphicon-th-large"></span>{{ article.category }}
+                </a>
+            </div>
+            <div class="article-item-body">
+                <div class="article-item-content">
+                    <a href="{% url 'blog:detail' article.id %}">
+                        <h3 class="article-title">{{ article.title }}</h3>
                     </a>
-                    <a href="{% url 'blog:category' category_id=article.category_id %}" class="date-and-source">
-                        <span class="glyphicon glyphicon-th-large"></span>{{ article.category }}
-                    </a>
-                </div>
-                <div class="article-item-body">
-                    <div class="article-item-content">                        
-                        <a href="{% url 'blog:detail' article.id %}"><h3 class="article-title">{{ article.title }}</h3></a>
-                        <div class="article-content">{{ article.digest }}</div>                        
-                    </div>
-                </div>
-                <div class="article-item-footer">
-                    <a href="#" class="article-item-control">
-                        <span class="glyphicon glyphicon glyphicon-eye-open"></span>{{ article.view }}
-                    </a>
-                    <a href="#" class="article-item-control">
-                        <span class="glyphicon glyphicon glyphicon-comment"></span>{{ article.comment }}
-                    </a>
+                    <div class="article-content">{{ article.digest }}</div>
                 </div>
             </div>
-        </article>
-        {% endfor %}
-    </div>
+            <div class="article-item-footer">
+                <a href="#" class="article-item-control">
+                    <span class="glyphicon glyphicon glyphicon-eye-open"></span>{{ article.view }}
+                </a>
+                <a href="#" class="article-item-control">
+                    <span class="glyphicon glyphicon glyphicon-comment"></span>{{ article.comment }}
+                </a>
+            </div>
+        </div>
+    </article>
+    {% endfor %}
+</div>
 {% endblock %}

@@ -18,8 +18,10 @@
                     <span class="glyphicon glyphicon-th-large"></span>{{ object.category }}
                 </a>
                 {% if object.author == user %}
-                    <a class="btn btn-info btn-sm mt-1 mb-1" href="{% url 'blog:update' object.id %}" title="更新博文">更新</a>
-                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'blog:delete' object.id %}" title="删除博文">删除</a>
+                    <div class="article-item-btn">
+                        <a class="btn btn-primary btn-sm mt-1 mb-1" href="{% url 'blog:update' object.id %}" title="更新博文">更新</a>
+                        <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'blog:delete' object.id %}" title="删除博文">删除</a>
+                    </div>                    
                 {% endif %}
             </div>
             <div class="article-item-body">
