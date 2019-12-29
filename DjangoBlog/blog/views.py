@@ -33,6 +33,7 @@ class ArticleListView(ListView):
     template_name = 'blog/index.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'article_list'    #模板中使用的上下文变量名
     ordering = ['-last_mod_date']
+    paginate_by = 5 #分页，设置每页显示的博文个数
 
 
 class ArticleDetailView(DetailView):
@@ -85,15 +86,17 @@ class UserArticleListView(ListView):
     model = Article
     template_name = 'blog/articles.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'article_list'    #模板中使用的上下文变量名
+    paginate_by = 5 #分页，设置每页显示的博文个数
 
     def get_queryset(self):
-        article_list= Article.objects.filter(author__username = self.kwargs['username']).order_by('-last_mod_date')
+        article_list= Article.objects.filter(author__username = self.kwargs['username']).order_by('-last_mod_date') #从self.kwargs中（即，从url参数中）获取用户名
         return article_list
 
 class CategoryListView(ListView):
     model = Article
     template_name = 'blog/articles.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'article_list'    #模板中使用的上下文变量名
+    paginate_by = 5 #分页，设置每页显示的博文个数
 
     def get_queryset(self):
         article_list= Article.objects.filter(category_id = self.kwargs['category_id']).order_by('-last_mod_date')    
@@ -103,6 +106,7 @@ class TagListView(ListView):
     model = Article
     template_name = 'blog/articles.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'article_list'    #模板中使用的上下文变量名
+    paginate_by = 5 #分页，设置每页显示的博文个数
     def get_queryset(self):
         article_list= Article.objects.filter(tag__name = self.kwargs['tag_name']).order_by('-last_mod_date')
         return article_list
