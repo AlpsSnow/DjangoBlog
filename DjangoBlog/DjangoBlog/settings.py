@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'djangoblog',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': os.environ.get('MYSQL_ROOT_PASS'),
         'HOST': 'localhost',
         'PORT': '3306',        
     }
@@ -157,3 +157,14 @@ LOGIN_REDIRECT_URL='blog:index'
 
 # 设置login的URL，（设置@login_required的重定向URL）
 LOGIN_URL = 'login'
+
+# 重置密码
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+MAIL_HOST = 'smtp.qq.com'
+EMAIL_PORT = 587  #发件箱的smtp服务器端口
+EMAIL_USE_TLS = True # 这里必须是 True，否则发送不成功
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER') # 你的 qq邮箱 账号
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS') #邮箱授权码
+#EMAIL_FROM = '344721710qq.com' # # 你的 QQ邮箱 账号
+#DEFAULT_FROM_EMAIL = '344721710qq.com'# 你的 QQ邮箱 账号
+
