@@ -22,4 +22,18 @@
 6. [用户注册](./readme/用户注册.md)  
 7. [用户登录与注销](./readme/用户登录与注销.md)  
 8. [用户profile和上传图片](./readme/用户profile和上传图片.md)  
-20. [使用vscode调试django](./使用vscode调试django.md)  
+9. 更新用户信息
+10. 博文的增删改查
+11. 博文列表的分页展示
+12. 发送邮件重置用户密码
+13. 部署到linux服务器
+14. [使用vscode调试django](./使用vscode调试django.md) 
+
+### TODO
+1. 重置密码技能，依然存在问题
+> ConnectionRefusedError at /password_reset/  
+[WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+即使[获取qq邮箱的授权码后](https://service.mail.qq.com/cgi-bin/help?subtype=1&&no=1001256&&id=28)，依然存在上面的问题，还需继续调查。
+
+网络检索发现同样问题：https://blog.csdn.net/Dick633/article/details/83714266
